@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?><?xml-stylesheet type="text/xsl" href="factura2.1.xsl"?><Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ccts="urn:oasis:names:specification:ubl:schema:xsd:CoreComponentParameters-2" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2" xmlns:sac="urn:sunat:names:specification:ubl:peru:schema:xsd:SunatAggregateComponents-1" xmlns:stat="urn:oasis:names:specification:ubl:schema:xsd:DocumentStatusCode-1.0" xmlns:udt="urn:un:unece:uncefact:data:draft:UnqualifiedDataTypesSchemaModule:2">
+	<ext:UBLExtensions>	
+		<ext:UBLExtension>	
+			<ext:ExtensionContent>
+				<sac:AdditionalInformation>
+										
+									</sac:AdditionalInformation>
+			</ext:ExtensionContent>
+		</ext:UBLExtension>
+	
+		<ext:UBLExtension>
+			<ext:ExtensionContent><ds:Signature Id="SignSUNAT"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><ds:Reference URI=""><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>sHs2NuX9QQlKmAqOzQg34NmFxis=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>Q2MhQzmCqlvMcS9q6t9hXXv4DSoOjzBtHD6jPe68WqZrwx1FRYRuaxDMoaxrIBtxNat4Hw3mgrdH
+7z0JN8fdPeWBcMXe6xt8Jn0z7UW2GB5RH4PXay/lTm/YP59aW2BAxbcbCTHG/x+BrB/46ZdwoY/X
+nVOrZco8eDdSoheXVri9syiLakpPtiiyXl7oIM7pJdp4Nt6ZfeLqEiwjX+ey+q8Dtg9kXSzzVpG4
+3A798yX9FfpIHYktN3mknE1+EztDaKn6NWj7+MRKPY1B2U46yo7akbJW0KCrhiHKcIKogTjdjnNF
+YQsaC4zNDNsYvVFPTma+gZpQGaPJ5dG9UyPrqw==</ds:SignatureValue><ds:KeyInfo><ds:X509Data><ds:X509Certificate>MIIIlTCCBn2gAwIBAgIJTSQkZX6VFEvxMA0GCSqGSIb3DQEBCwUAMIIBIjELMAkGA1UEBhMCUEUx
+DTALBgNVBAgMBExJTUExDTALBgNVBAcMBExJTUExPTA7BgNVBAsMNHNlZSBjdXJyZW50IGFkZHJl
+c3MgYXQgd3d3LmNhbWVyZmlybWEuY29tLnBlL2FkZHJlc3MxMDAuBgNVBAsMJ0FDIENBTUVSRklS
+TUEgUEVSw5ogQ0VSVElGSUNBRE9TIC0gMjAxNjEUMBIGA1UEBRMLMjA1NjYzMDI0NDcxGjAYBgNV
+BGEMEU5UUlBFLTIwNTY2MzAyNDQ3MSAwHgYDVQQKDBdDQU1FUkZJUk1BIFBFUsOaIFMuQS5DLjEw
+MC4GA1UEAwwnQUMgQ0FNRVJGSVJNQSBQRVLDmiBDRVJUSUZJQ0FET1MgLSAyMDE2MB4XDTIyMDkx
+MzEzMTA0M1oXDTI0MDkxMjEzMTA0M1owgfkxIzAhBgkqhkiG9w0BCQEWFG1kaWF6c2FAc3VuYXQu
+Z29iLnBlMUEwPwYDVQQDDDhTVVBFUklOVC4gTkFDLiBERSBBRFVBTkFTIFkgREUgQURNSU5JU1RS
+QUNJT04gVFJJQlVUQVJJQTENMAsGA1UEBwwETElNQTEUMBIGA1UECAwLTElNQSAtIExJTUExFDAS
+BgNVBAsMCzIwMTMxMzEyOTU1MTcwNQYDVQQLDC5Jc3N1ZWQgYnkgQ0FNRVJGSVJNQSBQRVLDmiAy
+MDE2ICBBQyBDQU1FUkZJUk1BMQ4wDAYDVQQKDAVTVU5BVDELMAkGA1UEBhMCUEUwggEiMA0GCSqG
+SIb3DQEBAQUAA4IBDwAwggEKAoIBAQC3s//LbU1CWSNSGedES2BROJLgF9SOipNNdAb/1HIxvzu7
+pfUD5XQDKpcRwZ2i/1vIB8vVoVTS+t4jCogo21ok2Yx9wrnCEZjIvj8rUnYSfB2oqp4Bt1Oi80ew
+VGsPJiS7QxnMnwN/wzrYC6FNi9q/TyFqpsp0shVA5gKhOSUzfZrRZ1LcOZw1rmLc3cR6Ar6uTO0i
+D6EIDf/5FiXhwUZPfEVamU2XKigSKC5NeR3/7x0+29YUS68g8s68jAwZZ/Qmtqo8/QqNst3Kar2M
+6A6sd/p3vGuYRXddpVPVRVXORNIM6DX9sKwfsULfqmHYlUxuYnyxkqKNfpQY/k2OR+DbAgMBAAGj
+ggLyMIIC7jAMBgNVHRMBAf8EAjAAMA4GA1UdDwEB/wQEAwIGwDAdBgNVHSUEFjAUBggrBgEFBQcD
+AgYIKwYBBQUHAwQwHQYDVR0OBBYEFEDigdbnWKLpN8Pjf7XmfTdotkA5MIGNBggrBgEFBQcBAQSB
+gDB+MFQGCCsGAQUFBzAChkhodHRwOi8vd3d3LmNhbWVyZmlybWEuY29tL2NlcnRzL2FjX2NhbWVy
+ZmlybWFfcGVydV9jZXJ0aWZpY2Fkb3MtMjAxNi5jcnQwJgYIKwYBBQUHMAGGGmh0dHA6Ly9vY3Nw
+LmNhbWVyZmlybWEuY29tMB8GA1UdIwQYMBaAFDpuZRjnVtLk8y3dpXxybf8w4YYnMIGgBgNVHR8E
+gZgwgZUwSKBGoESGQmh0dHA6Ly9jcmwuY2FtZXJmaXJtYS5jb20vYWNfY2FtZXJmaXJtYV9wZXJ1
+X2NlcnRpZmljYWRvcy0yMDE2LmNybDBJoEegRYZDaHR0cDovL2NybDEuY2FtZXJmaXJtYS5jb20v
+YWNfY2FtZXJmaXJtYV9wZXJ1X2NlcnRpZmljYWRvcy0yMDE2LmNybDB7BgNVHREEdDBygRRtZGlh
+enNhQHN1bmF0LmdvYi5wZaRaMFgxVjBUBgorBgEEAYGHLh4KDEZDRVJUSUZJQ0FETyBERSBTRUxM
+TyBFTEVDVFJPTklDTyBERSBFTVBSRVNBIFBBUkEgQUdFTlRFUyBBVVRPTUFUSVpBRE9TMBwGA1Ud
+EgQVMBOBEWNhQGNhbWVyZmlybWEuY29tMIGgBgNVHSAEgZgwgZUwgZIGDCsGAQQBgYcuHhAyATCB
+gTApBggrBgEFBQcCARYdaHR0cHM6Ly9wb2xpY3kuY2FtZXJmaXJtYS5jb20wVAYIKwYBBQUHAgIw
+SAxGQ0VSVElGSUNBRE8gREUgU0VMTE8gRUxFQ1RST05JQ08gREUgRU1QUkVTQSBQQVJBIEFHRU5U
+RVMgQVVUT01BVElaQURPUzANBgkqhkiG9w0BAQsFAAOCAgEAhwcRvJZBWsYd7x7rOpbJ5glac6L+
+WYRiUWqdhCGnoVvWKU3c/1BPxjNBWGUMUxxBaXYXs0xOLzylBqdOGXx0ai9Lk4pX1cqE2bClwlyO
+rxwQfY6aLvHgIKO1qmi3B54GgXpgnquvTnCVer2D+hgEGi4s36CLW92Ip8gz+5UIGUiBvH7yNQ2I
+VujYLbhZB2HIMidUU8OqMqVsIS4HwTTrZfB+Id9UEh6dUcgXPLkeOOCcExNfWh1Yz+VoMJBZtwSw
+4iRwDH2qvrujJhx3RZ6z8Ur+EgdYy3LZw+r5mYmeq77QOyWaE1IUob9dFX9DTSrdjjshVvnL1ckY
+qdetoc5wj2WZto7x4rb95a10hLoXfe4rNb6nDTsTsX2Py2/CE6Y97LHmYw6kiv8QbaShSIjsLVBv
+RwpdLW2mJBlrnmz5NVCvPpaJQq5MW6yoabvfxCUwxog2qGqjqdjZYsz0REUu4FAYa/Xv0e3soZxE
+Rss6gTOP+cIKb2uqYRB/3TrESOvohC/nBWItSWH67iR5FMRwx20SCNC8afoPhhYEgG2K7xVsMY7e
+WbCny/BCPvzmebPG1Ekr/wYhpbveloawR8R6LwKgmYaP3IDVAQaDQ9uMDxE0oLvKP2ndWZ6EG6sB
+jTifA/W8JKsY3/Ww/w6a4RvLj+C5wBdm+YXooSGLWZzNPhw=</ds:X509Certificate></ds:X509Data></ds:KeyInfo></ds:Signature></ext:ExtensionContent>
+		</ext:UBLExtension>
+	</ext:UBLExtensions>
+	
+	<cbc:UBLVersionID>2.1</cbc:UBLVersionID>
+	<cbc:CustomizationID>2.0</cbc:CustomizationID>
+	
+	<cbc:ID>E001-309</cbc:ID>
+	<cbc:IssueDate>2022-09-23</cbc:IssueDate>
+	<cbc:IssueTime>14:39:59.0Z</cbc:IssueTime>
+
+	<cbc:InvoiceTypeCode listAgencyName="PE:SUNAT" listID="0101" listName="Tipo de Documento" listSchemeURI="urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo51" listURI="urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo01" name="Tipo de Operacion">01</cbc:InvoiceTypeCode>
+		<cbc:Note languageLocaleID="1000"><![CDATA[SON:  DIECINUEVE MIL TRESCIENTOS OCHENTA Y 00/100  SOLES]]></cbc:Note>
+														<cbc:DocumentCurrencyCode listAgencyName="United Nations Economic Commission for Europe" listID="ISO 4217 Alpha" listName="Currency">PEN</cbc:DocumentCurrencyCode>
+					
+																	<cac:Signature>
+		<cbc:ID>E001-309</cbc:ID>
+		<cac:SignatoryParty>
+			<cac:PartyName>
+				<cbc:Name>SUNAT</cbc:Name>
+			</cac:PartyName>
+		</cac:SignatoryParty>
+		<cac:DigitalSignatureAttachment>
+			<cac:ExternalReference>
+				<cbc:URI>SignSUNAT</cbc:URI>
+			</cac:ExternalReference>
+		</cac:DigitalSignatureAttachment>
+	</cac:Signature>
+	<cac:AccountingSupplierParty>
+		<cac:Party>
+			<cac:PartyIdentification>
+				<cbc:ID schemeAgencyName="PE:SUNAT" schemeID="6" schemeName="Documento de Identidad" schemeURI="urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo06">20508322012</cbc:ID>
+			</cac:PartyIdentification>
+			<cac:PartyName>
+				<cbc:Name/>
+			</cac:PartyName>
+			<cac:PartyLegalEntity>
+				<cbc:RegistrationName><![CDATA[GASELAG LABORATORIOS Y CERTIFICACIONES S.A.C.-GALACER S.A.C.]]></cbc:RegistrationName>
+				<cac:RegistrationAddress>
+					<cbc:AddressTypeCode listAgencyName="PE:SUNAT" listName="Establecimientos anexos">0</cbc:AddressTypeCode>
+										<cbc:BuildingNumber/>
+										<cbc:CitySubdivisionName>-</cbc:CitySubdivisionName>
+					<cbc:CityName><![CDATA[LIMA]]></cbc:CityName>
+					<cbc:CountrySubentity><![CDATA[LIMA]]></cbc:CountrySubentity>
+					<cbc:CountrySubentityCode><![CDATA[150134]]></cbc:CountrySubentityCode>
+					<cbc:District><![CDATA[SAN LUIS]]></cbc:District>		
+					<cac:AddressLine>
+						<cbc:Line><![CDATA[AV. AGUSTIN DE LA ROSA TORO 130 1ER PISO FRENTE MERCADO DE FRUTAS]]></cbc:Line>
+					</cac:AddressLine>
+					<cac:Country>
+					  <cbc:IdentificationCode>PE</cbc:IdentificationCode>
+					</cac:Country>
+				</cac:RegistrationAddress>
+			</cac:PartyLegalEntity>
+		</cac:Party>
+	</cac:AccountingSupplierParty>
+	<cac:AccountingCustomerParty>
+		<cac:Party>
+			<cac:PartyIdentification>
+			<cbc:ID schemeAgencyName="PE:SUNAT" schemeID="6" schemeName="Documento de Identidad" schemeURI="urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo06">20100152356</cbc:ID>
+			</cac:PartyIdentification>
+			<cac:PartyLegalEntity>
+				<cbc:RegistrationName><![CDATA[SERV AGUA POTAB Y ALCANT DE LIMA-SEDAPAL]]></cbc:RegistrationName>
+							</cac:PartyLegalEntity>
+		</cac:Party>
+	</cac:AccountingCustomerParty>
+<!-- INICIO DIRECCION DETALLADA DEL CLIENTE FACTORING -->
+	<cac:BuyerCustomerParty>
+		<cac:Party>
+			<cac:PartyLegalEntity>
+				<cac:RegistrationAddress>
+				    <cbc:CitySubdivisionName/>
+					<cbc:CityName>LIMA</cbc:CityName>
+				    <cbc:CountrySubentity>LIMA</cbc:CountrySubentity>
+					<cbc:CountrySubentityCode>150111</cbc:CountrySubentityCode>	                             
+					 <cbc:District>EL AGUSTINO</cbc:District>
+					<cac:AddressLine>
+						<cbc:Line><![CDATA[AUTOP.RAMIRO PRIALE 210 LA ATARJEA KM. 1 AUTOPISTA RAMIRO PRIALE  LIMA LIMA EL AGUSTINO]]></cbc:Line>
+					</cac:AddressLine>
+					<cac:Country>
+					  <cbc:IdentificationCode>PE</cbc:IdentificationCode>
+					</cac:Country>
+				</cac:RegistrationAddress>
+			</cac:PartyLegalEntity>
+		</cac:Party>
+	</cac:BuyerCustomerParty>
+			
+<!--FIN DIRECCION DETALLADA DEL CLIENTE FACTORING -->
+   	<cac:SellerSupplierParty>
+		<cac:Party>
+
+      <cac:PostalAddress> 
+				    <cbc:ID>150134</cbc:ID>			    
+				    <cbc:CitySubdivisionName/>
+				    <cbc:CityName>LIMA</cbc:CityName>
+				    <cbc:CountrySubentity>LIMA</cbc:CountrySubentity>
+				    <cbc:District>SAN LUIS </cbc:District>
+					<cac:AddressLine>
+						<cbc:Line><![CDATA[AV. AGUSTIN DE LA ROSA TORO 130 1ER PISO - FRENTE MERCADO DE FRUTAS LIMA-LIMA-SAN LUIS]]></cbc:Line>
+					</cac:AddressLine>	
+					<cac:Country><cbc:IdentificationCode>PE</cbc:IdentificationCode> </cac:Country>    
+      </cac:PostalAddress>	
+    	
+    </cac:Party>
+	</cac:SellerSupplierParty>
+	<!-- INICIO DATOS DE FORMA DE PAGO -->
+		<cac:PaymentTerms>
+		<cbc:ID>FormaPago</cbc:ID> 
+		<cbc:PaymentMeansID>Credito</cbc:PaymentMeansID> 
+		<cbc:Amount currencyID="PEN">17054.40</cbc:Amount>
+	</cac:PaymentTerms>	
+	
+	<cac:PaymentTerms>
+		<cbc:ID>FormaPago</cbc:ID> 
+		<cbc:PaymentMeansID>Cuota001</cbc:PaymentMeansID> 
+		<cbc:Amount currencyID="PEN">17054.40</cbc:Amount> 
+		<cbc:PaymentDueDate>2022-10-07</cbc:PaymentDueDate>
+	</cac:PaymentTerms>
+			
+<!-- FIN DE DATOS DE FORMA DE PAGO -->	
+		    	    	    <!-- INICIO DATOS DE RETENCION -->	
+	<!-- FIN DE DATOS DE RETENCION -->	
+	<cac:TaxTotal>
+	  <cbc:TaxAmount currencyID="PEN">2956.27</cbc:TaxAmount>
+								
+				
+				
+			   <cac:TaxSubtotal>
+        <cbc:TaxableAmount currencyID="PEN">16423.73</cbc:TaxableAmount>
+        <cbc:TaxAmount currencyID="PEN">2956.27</cbc:TaxAmount>
+        <cac:TaxCategory>
+          <cbc:ID schemeAgencyName="United Nations Economic Commission for Europe" schemeID="UN/ECE 5305" schemeName="Tax Category Identifier">S</cbc:ID>
+          <cac:TaxScheme>
+            <cbc:ID schemeAgencyName="PE:SUNAT" schemeID="UN/ECE 5153" schemeName="Codigo de tributos">1000</cbc:ID>
+            <cbc:Name>IGV</cbc:Name>
+            <cbc:TaxTypeCode>VAT</cbc:TaxTypeCode>
+          </cac:TaxScheme>
+        </cac:TaxCategory>
+	   </cac:TaxSubtotal>
+											</cac:TaxTotal>
+	<cac:LegalMonetaryTotal>
+		<cbc:LineExtensionAmount currencyID="PEN">16423.73</cbc:LineExtensionAmount>
+		<cbc:AllowanceTotalAmount currencyID="PEN">0.00</cbc:AllowanceTotalAmount>
+		<cbc:ChargeTotalAmount currencyID="PEN">0.00</cbc:ChargeTotalAmount>
+				<cbc:PrepaidAmount currencyID="PEN">0.00</cbc:PrepaidAmount>
+		
+		 		<cbc:PayableAmount currencyID="PEN">19380.00</cbc:PayableAmount>	
+	</cac:LegalMonetaryTotal>
+
+		<cac:InvoiceLine>
+		<cbc:ID>1</cbc:ID>
+		<cbc:InvoicedQuantity unitCode="NIU" unitCodeListAgencyName="United Nations Economic Commission for Europe" unitCodeListID="UN/ECE rec 20">252.00</cbc:InvoicedQuantity>
+		<cbc:LineExtensionAmount currencyID="PEN">14949.1525428</cbc:LineExtensionAmount>
+		
+				<cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+				
+								<cac:PricingReference>
+			<cac:AlternativeConditionPrice>
+				<cbc:PriceAmount currencyID="PEN">70.000000002</cbc:PriceAmount>
+				<cbc:PriceTypeCode listAgencyName="PE:SUNAT" listName="Tipo de Precio" listURI="urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo16">01</cbc:PriceTypeCode>
+			</cac:AlternativeConditionPrice>
+		</cac:PricingReference>
+		
+		<cac:AllowanceCharge>
+  		  			<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+  					<cbc:Amount currencyID="PEN">0.00</cbc:Amount>
+		</cac:AllowanceCharge>
+		
+		<!-- TAX Impuestos Item -->
+		<cac:TaxTotal>
+		  <cbc:TaxAmount currencyID="PEN">2690.847457704</cbc:TaxAmount>
+		  <!-- cac:TaxSubtotal -->
+		  	<cac:TaxSubtotal>
+				<cbc:TaxableAmount currencyID="PEN">14949.1525428</cbc:TaxableAmount>
+				<cbc:TaxAmount currencyID="PEN">0.00</cbc:TaxAmount>
+				<cac:TaxCategory>
+				  <cbc:ID schemeAgencyName="United Nations Economic Commission for Europe" schemeID="UN/ECE 5305" schemeName="Tax Category Identifier">S</cbc:ID>
+				  <cbc:Percent>0.00</cbc:Percent>
+				  <cbc:TierRange>0</cbc:TierRange>					  
+				  <cac:TaxScheme>
+					<cbc:ID schemeAgencyName="PE:SUNAT" schemeID="UN/ECE 5153" schemeName="Codigo de tributos">2000</cbc:ID>
+					<cbc:Name>ISC</cbc:Name>
+					<cbc:TaxTypeCode>EXC</cbc:TaxTypeCode>	
+				  </cac:TaxScheme>
+				</cac:TaxCategory>
+			</cac:TaxSubtotal>
+			
+						
+				<!--Excluyentes :: Otro Tributo - Gratuita(Bonificacion) - Exportacion - Onerosa(Bonitificacion) {Gravada, Inafecta, Exonerada} -->
+							<cac:TaxSubtotal>
+				<cbc:TaxableAmount currencyID="PEN">14949.1525428</cbc:TaxableAmount>
+				<cbc:TaxAmount currencyID="PEN">2690.847457704</cbc:TaxAmount>
+				<cac:TaxCategory>
+				  <cbc:ID schemeAgencyName="United Nations Economic Commission for Europe" schemeID="UN/ECE 5305" schemeName="Tax Category Identifier">S</cbc:ID>
+				  <cbc:Percent>18.00</cbc:Percent>
+				  <cbc:TaxExemptionReasonCode listAgencyName="PE:SUNAT" listName="Afectacion del IGV" listURI="urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo07">10</cbc:TaxExemptionReasonCode>
+				  <cac:TaxScheme>
+					<cbc:ID schemeAgencyName="PE:SUNAT" schemeID="UN/ECE 5153" schemeName="Codigo de tributos">1000</cbc:ID>
+					<cbc:Name>IGV</cbc:Name>
+					<cbc:TaxTypeCode>VAT</cbc:TaxTypeCode>
+				   </cac:TaxScheme>
+				</cac:TaxCategory>
+			</cac:TaxSubtotal>
+							<!-- /cac:TaxSubtotal -->
+		</cac:TaxTotal>			
+		<cac:Item>
+			<cbc:Description><![CDATA[SERVICIO DE VERIFICACION POSTERIOR EN LABORATORIO, DE MEDIDORES DE AGUA, NORMA 005:2011, DEL PERIODO 08-2022 AL 09-2022, EC-SURQUILLO, POR OFICIO]]></cbc:Description>
+			<cac:SellersItemIdentification>
+				<cbc:ID/>
+			</cac:SellersItemIdentification>
+		</cac:Item>
+		
+		<cac:Price>
+			<cbc:PriceAmount currencyID="PEN">59.3220339</cbc:PriceAmount>
+		</cac:Price>
+    
+	</cac:InvoiceLine>
+		<cac:InvoiceLine>
+		<cbc:ID>2</cbc:ID>
+		<cbc:InvoicedQuantity unitCode="NIU" unitCodeListAgencyName="United Nations Economic Commission for Europe" unitCodeListID="UN/ECE rec 20">7.00</cbc:InvoicedQuantity>
+		<cbc:LineExtensionAmount currencyID="PEN">1305.084746</cbc:LineExtensionAmount>
+		
+				<cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+				
+								<cac:PricingReference>
+			<cac:AlternativeConditionPrice>
+				<cbc:PriceAmount currencyID="PEN">220.00000004</cbc:PriceAmount>
+				<cbc:PriceTypeCode listAgencyName="PE:SUNAT" listName="Tipo de Precio" listURI="urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo16">01</cbc:PriceTypeCode>
+			</cac:AlternativeConditionPrice>
+		</cac:PricingReference>
+		
+		<cac:AllowanceCharge>
+  		  			<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+  					<cbc:Amount currencyID="PEN">0.00</cbc:Amount>
+		</cac:AllowanceCharge>
+		
+		<!-- TAX Impuestos Item -->
+		<cac:TaxTotal>
+		  <cbc:TaxAmount currencyID="PEN">234.91525428</cbc:TaxAmount>
+		  <!-- cac:TaxSubtotal -->
+		  	<cac:TaxSubtotal>
+				<cbc:TaxableAmount currencyID="PEN">1305.084746</cbc:TaxableAmount>
+				<cbc:TaxAmount currencyID="PEN">0.00</cbc:TaxAmount>
+				<cac:TaxCategory>
+				  <cbc:ID schemeAgencyName="United Nations Economic Commission for Europe" schemeID="UN/ECE 5305" schemeName="Tax Category Identifier">S</cbc:ID>
+				  <cbc:Percent>0.00</cbc:Percent>
+				  <cbc:TierRange>0</cbc:TierRange>					  
+				  <cac:TaxScheme>
+					<cbc:ID schemeAgencyName="PE:SUNAT" schemeID="UN/ECE 5153" schemeName="Codigo de tributos">2000</cbc:ID>
+					<cbc:Name>ISC</cbc:Name>
+					<cbc:TaxTypeCode>EXC</cbc:TaxTypeCode>	
+				  </cac:TaxScheme>
+				</cac:TaxCategory>
+			</cac:TaxSubtotal>
+			
+						
+				<!--Excluyentes :: Otro Tributo - Gratuita(Bonificacion) - Exportacion - Onerosa(Bonitificacion) {Gravada, Inafecta, Exonerada} -->
+							<cac:TaxSubtotal>
+				<cbc:TaxableAmount currencyID="PEN">1305.084746</cbc:TaxableAmount>
+				<cbc:TaxAmount currencyID="PEN">234.91525428</cbc:TaxAmount>
+				<cac:TaxCategory>
+				  <cbc:ID schemeAgencyName="United Nations Economic Commission for Europe" schemeID="UN/ECE 5305" schemeName="Tax Category Identifier">S</cbc:ID>
+				  <cbc:Percent>18.00</cbc:Percent>
+				  <cbc:TaxExemptionReasonCode listAgencyName="PE:SUNAT" listName="Afectacion del IGV" listURI="urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo07">10</cbc:TaxExemptionReasonCode>
+				  <cac:TaxScheme>
+					<cbc:ID schemeAgencyName="PE:SUNAT" schemeID="UN/ECE 5153" schemeName="Codigo de tributos">1000</cbc:ID>
+					<cbc:Name>IGV</cbc:Name>
+					<cbc:TaxTypeCode>VAT</cbc:TaxTypeCode>
+				   </cac:TaxScheme>
+				</cac:TaxCategory>
+			</cac:TaxSubtotal>
+							<!-- /cac:TaxSubtotal -->
+		</cac:TaxTotal>			
+		<cac:Item>
+			<cbc:Description><![CDATA[SERVICIO DE VERIFICACION POSTERIOR EN LABORATORIO, DE MEDIDOR DE AGUA, DN 25MM, NORMA 005:2011, DEL PERIODO 08-2022 AL 09-2022, EC-SURQUILLO, POR OFICIO]]></cbc:Description>
+			<cac:SellersItemIdentification>
+				<cbc:ID/>
+			</cac:SellersItemIdentification>
+		</cac:Item>
+		
+		<cac:Price>
+			<cbc:PriceAmount currencyID="PEN">186.440678</cbc:PriceAmount>
+		</cac:Price>
+    
+	</cac:InvoiceLine>
+		<cac:InvoiceLine>
+		<cbc:ID>3</cbc:ID>
+		<cbc:InvoicedQuantity unitCode="NIU" unitCodeListAgencyName="United Nations Economic Commission for Europe" unitCodeListID="UN/ECE rec 20">4.00</cbc:InvoicedQuantity>
+		<cbc:LineExtensionAmount currencyID="PEN">169.49152544</cbc:LineExtensionAmount>
+		
+				<cbc:FreeOfChargeIndicator>false</cbc:FreeOfChargeIndicator>
+				
+								<cac:PricingReference>
+			<cac:AlternativeConditionPrice>
+				<cbc:PriceAmount currencyID="PEN">50.0000000048</cbc:PriceAmount>
+				<cbc:PriceTypeCode listAgencyName="PE:SUNAT" listName="Tipo de Precio" listURI="urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo16">01</cbc:PriceTypeCode>
+			</cac:AlternativeConditionPrice>
+		</cac:PricingReference>
+		
+		<cac:AllowanceCharge>
+  		  			<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+  					<cbc:Amount currencyID="PEN">0.00</cbc:Amount>
+		</cac:AllowanceCharge>
+		
+		<!-- TAX Impuestos Item -->
+		<cac:TaxTotal>
+		  <cbc:TaxAmount currencyID="PEN">30.5084745792</cbc:TaxAmount>
+		  <!-- cac:TaxSubtotal -->
+		  	<cac:TaxSubtotal>
+				<cbc:TaxableAmount currencyID="PEN">169.49152544</cbc:TaxableAmount>
+				<cbc:TaxAmount currencyID="PEN">0.00</cbc:TaxAmount>
+				<cac:TaxCategory>
+				  <cbc:ID schemeAgencyName="United Nations Economic Commission for Europe" schemeID="UN/ECE 5305" schemeName="Tax Category Identifier">S</cbc:ID>
+				  <cbc:Percent>0.00</cbc:Percent>
+				  <cbc:TierRange>0</cbc:TierRange>					  
+				  <cac:TaxScheme>
+					<cbc:ID schemeAgencyName="PE:SUNAT" schemeID="UN/ECE 5153" schemeName="Codigo de tributos">2000</cbc:ID>
+					<cbc:Name>ISC</cbc:Name>
+					<cbc:TaxTypeCode>EXC</cbc:TaxTypeCode>	
+				  </cac:TaxScheme>
+				</cac:TaxCategory>
+			</cac:TaxSubtotal>
+			
+						
+				<!--Excluyentes :: Otro Tributo - Gratuita(Bonificacion) - Exportacion - Onerosa(Bonitificacion) {Gravada, Inafecta, Exonerada} -->
+							<cac:TaxSubtotal>
+				<cbc:TaxableAmount currencyID="PEN">169.49152544</cbc:TaxableAmount>
+				<cbc:TaxAmount currencyID="PEN">30.5084745792</cbc:TaxAmount>
+				<cac:TaxCategory>
+				  <cbc:ID schemeAgencyName="United Nations Economic Commission for Europe" schemeID="UN/ECE 5305" schemeName="Tax Category Identifier">S</cbc:ID>
+				  <cbc:Percent>18.00</cbc:Percent>
+				  <cbc:TaxExemptionReasonCode listAgencyName="PE:SUNAT" listName="Afectacion del IGV" listURI="urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo07">10</cbc:TaxExemptionReasonCode>
+				  <cac:TaxScheme>
+					<cbc:ID schemeAgencyName="PE:SUNAT" schemeID="UN/ECE 5153" schemeName="Codigo de tributos">1000</cbc:ID>
+					<cbc:Name>IGV</cbc:Name>
+					<cbc:TaxTypeCode>VAT</cbc:TaxTypeCode>
+				   </cac:TaxScheme>
+				</cac:TaxCategory>
+			</cac:TaxSubtotal>
+							<!-- /cac:TaxSubtotal -->
+		</cac:TaxTotal>			
+		<cac:Item>
+			<cbc:Description><![CDATA[SERVICIO DE VERIFICACION POSTERIOR EN LABORATORIO, DE MEDIDORES DE AGUA, NORMA 005:1996, DEL PERIODO 08-2022 AL 09-2022, EC-SURQUILLO, POR OFICIO]]></cbc:Description>
+			<cac:SellersItemIdentification>
+				<cbc:ID/>
+			</cac:SellersItemIdentification>
+		</cac:Item>
+		
+		<cac:Price>
+			<cbc:PriceAmount currencyID="PEN">42.37288136</cbc:PriceAmount>
+		</cac:Price>
+    
+	</cac:InvoiceLine>
+	</Invoice>
