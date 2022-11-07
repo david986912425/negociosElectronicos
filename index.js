@@ -79,15 +79,13 @@ const CargarXML = (xml) => {
     var valorVenta = parseFloat(DocumentoXML.getElementsByTagName("cbc:TaxableAmount")[0].childNodes[0].nodeValue).toFixed(2); //Aca se calcula el importe
     var IGV = parseFloat(DocumentoXML.getElementsByTagName("cbc:TaxAmount")[0].childNodes[0].nodeValue).toFixed(2);
     var importeTotal = parseFloat(DocumentoXML.getElementsByTagName("cbc:PayableAmount")[0].childNodes[0].nodeValue).toFixed(2);
-    var resdectracion = parseFloat(importe)-parseFloat(importeTotal);
+    var resdectracion = parseFloat(importeTotal)-parseFloat(importe);
     var importeConRetencion = 0;
     var boolRet = "NO";
     var motivoRet = "asdsdasd";
     var detraccion = "";
     
-    if (resdectracion==0){
-        detraccion = "NO HAY DETRACCION";
-    }
+    
     
     var rucid = DocumentoXML.getElementsByTagName("cac:PartyIdentification")[0].children[0].innerHTML;
     console.log(rucid);
@@ -97,7 +95,7 @@ const CargarXML = (xml) => {
         //detraccion = parseFloat(importeTotal * 0.12).toFixed(2);
         
         if (importeTotal > 700 && IGV > 0) {
-            var promise = fetch('RUCELECTRONICOS.json')
+            fetch('RUCELECTRONICOS.json')
             .then(data => data.json())
             .then(data=> {
                 ruc = data;
@@ -116,32 +114,31 @@ const CargarXML = (xml) => {
                     console.log('Si se encuentra en el Padron de retencion,entonces no se debe cobrar retencion');
                     detraccion = parseFloat(importeTotal * 0.12).toFixed(2);
                     motivoRet = "SE ENCUENTRA EN EL PADRÓN DE RETENCIÓN";
-                    resultsFetch.push(motivoRet);
                     document.getElementsByClassName("value")[10].innerHTML = 'SE ENCUENTRA EN EL PADRÓN DE RETENCIÓN';
                     document.getElementsByClassName("value")[11].innerHTML = 'SE EXONERA';
+                    if (resdectracion==0){
+                        detraccion = "NO HAY DETRACCION";
+                        document.getElementsByClassName("value")[7].innerHTML = 'NO HAY DETRACCION';
 
-                    return resultsFetch;
+                    }
                 }else{
                     console.log('No se encuentra en el Padron de retencion,entonces si se debe cobrar retencion');
                     boolRet = "SI";
-                    retencion = importeTotal * 0.03;
-                    importeConRetencion = importeTotal + retencion;
+                    retencion = parseFloat(importeTotal * 0.03).toFixed(2);
                     motivoRet = "NO SE ENCUENTRA EN EL PADRÓN DE RETENCIÓN";
-                    resultsFetch.push(motivoRet);
                     document.getElementsByClassName("value")[10].innerHTML = 'NO SE ENCUENTRA EN EL PADRÓN DE RETENCIÓN';
                     retencion = importeTotal*0.03
                     document.getElementsByClassName("value")[11].innerHTML = retencion.toFixed(2);
-                    
-                    return resultsFetch;
+                    var resultado2 = (parseFloat(resdectracion)-parseFloat(retencion)).toFixed(2)
+                    console.log(resultado2)
+                    if (resultado2 == 0){
+                        document.getElementsByClassName("value")[7].innerHTML = 'NO HAY DETRACCION';
 
+                    }else{
+                        document.getElementsByClassName("value")[7].innerHTML = resultado2;
+                    }
                 }
             });
-            
-            const printPromise = () => {
-                promise.then((a) => {
-                    console.log(a);
-                });
-            };
             
             
 
@@ -154,6 +151,7 @@ const CargarXML = (xml) => {
                 importeConRetencion = printPromise()[2];
                 motivoRet = printPromise()[3];
             }*/
+            
         }else{
             console.log('No se le aplica retencion ni detracción');
             motivoRet = "SIN IGV";
