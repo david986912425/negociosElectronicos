@@ -67,116 +67,118 @@ function ExportarTablaAExcel(tableID, filename = ''){
 }
 
 const CargarXML = (xml) => {
-    let DocumentoXML = xml;
+    var DocumentoXML = xml;
 
-    let currentDate = new Date();
-    let importe = parseFloat(DocumentoXML.getElementsByTagName("cbc:Amount")[0].childNodes[0].nodeValue).toFixed(2);
-    let nropedido = DocumentoXML.getElementsByTagName("cbc:ID")[2].childNodes[0].nodeValue;
-    let fechaFactura = DocumentoXML.getElementsByTagName("cbc:IssueDate")[0].childNodes[0].nodeValue;
-    let refer = DocumentoXML.getElementsByTagName("cbc:ID")[0].childNodes[0].nodeValue;
-    let fechaContab = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`;
-    let texto = DocumentoXML.getElementsByTagName("cbc:Description")[0].childNodes[0].nodeValue;
-    let valorVenta = parseFloat(DocumentoXML.getElementsByTagName("cbc:TaxableAmount")[0].childNodes[0].nodeValue).toFixed(2); //Aca se calcula el importe
+    var currentDate = new Date();
+    var importe = parseFloat(DocumentoXML.getElementsByTagName("cbc:Amount")[0].childNodes[0].nodeValue).toFixed(2);
+    var nropedido = DocumentoXML.getElementsByTagName("cbc:ID")[2].childNodes[0].nodeValue;
+    var fechaFactura = DocumentoXML.getElementsByTagName("cbc:IssueDate")[0].childNodes[0].nodeValue;
+    var refer = DocumentoXML.getElementsByTagName("cbc:ID")[0].childNodes[0].nodeValue;
+    var fechaContab = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`;
+    var texto = DocumentoXML.getElementsByTagName("cbc:Description")[0].childNodes[0].nodeValue;
+    var valorVenta = parseFloat(DocumentoXML.getElementsByTagName("cbc:TaxableAmount")[0].childNodes[0].nodeValue).toFixed(2); //Aca se calcula el importe
     var IGV = parseFloat(DocumentoXML.getElementsByTagName("cbc:TaxAmount")[0].childNodes[0].nodeValue).toFixed(2);
-    let importeTotal = parseFloat(DocumentoXML.getElementsByTagName("cbc:PayableAmount")[0].childNodes[0].nodeValue).toFixed(2);
-    var detraccion = 0;
-    var retencion = 0;
+    var importeTotal = parseFloat(DocumentoXML.getElementsByTagName("cbc:PayableAmount")[0].childNodes[0].nodeValue).toFixed(2);
+    var resdectracion = parseFloat(importe)-parseFloat(importeTotal);
     var importeConRetencion = 0;
     var boolRet = "NO";
-    var motivoRet = "SE ENCUENTRA EN EL PADRÓN DE RETENCIÓN";
+    var motivoRet = "asdsdasd";
+    var detraccion = "";
     
-    let rucid = DocumentoXML.getElementsByTagName("cac:PartyIdentification")[0].children[0].innerHTML;
+    if (resdectracion==0){
+        detraccion = "NO HAY DETRACCION";
+    }
+    
+    var rucid = DocumentoXML.getElementsByTagName("cac:PartyIdentification")[0].children[0].innerHTML;
     console.log(rucid);
     
-    if (IGV > 0) {
+    
 
-        detraccion = parseFloat(importeTotal*0.12).toFixed(2);
+        //detraccion = parseFloat(importeTotal * 0.12).toFixed(2);
         
-        if (importeTotal > 700) {
-            fetch('RUCELECTRONICOS.json')
+        if (importeTotal > 700 && IGV > 0) {
+            var promise = fetch('RUCELECTRONICOS.json')
             .then(data => data.json())
             .then(data=> {
                 ruc = data;
                 
                 const resultado = ruc.filter(function(data){
                     
-                    if ( data.Ruc == rucid){
+                    if (data.Ruc == rucid){
                         return true;
                     }
                     
                 });
 
+                var resultsFetch = [];
+
                 if(resultado.length > 0){
                     console.log('Si se encuentra en el Padron de retencion,entonces no se debe cobrar retencion');
+                    detraccion = parseFloat(importeTotal * 0.12).toFixed(2);
+                    motivoRet = "SE ENCUENTRA EN EL PADRÓN DE RETENCIÓN";
+                    resultsFetch.push(motivoRet);
+                    document.getElementsByClassName("value")[10].innerHTML = 'SE ENCUENTRA EN EL PADRÓN DE RETENCIÓN';
+                    document.getElementsByClassName("value")[11].innerHTML = 'SE EXONERA';
+
+                    return resultsFetch;
                 }else{
                     console.log('No se encuentra en el Padron de retencion,entonces si se debe cobrar retencion');
-
                     boolRet = "SI";
                     retencion = importeTotal * 0.03;
                     importeConRetencion = importeTotal + retencion;
                     motivoRet = "NO SE ENCUENTRA EN EL PADRÓN DE RETENCIÓN";
+                    resultsFetch.push(motivoRet);
+                    document.getElementsByClassName("value")[10].innerHTML = 'NO SE ENCUENTRA EN EL PADRÓN DE RETENCIÓN';
+                    retencion = importeTotal*0.03
+                    document.getElementsByClassName("value")[11].innerHTML = retencion.toFixed(2);
+                    
+                    return resultsFetch;
+
                 }
             });
-        }
-    } else{
-        console.log('No se le aplica retencion ni detracción');
-        motivoRet = "SIN IGV";
-    }
-    
-    
-    
+            
+            const printPromise = () => {
+                promise.then((a) => {
+                    console.log(a);
+                });
+            };
+            
+            
 
-    let arrayData = [nropedido, fechaFactura, refer, fechaContab, valorVenta, IGV,importeTotal, detraccion, importe, texto, boolRet, motivoRet, importeConRetencion, retencion];
+            /*if (printPromise().length == 2) {
+                detraccion = printPromise()[0];
+                motivoRet = printPromise()[1];
+            } else {
+                boolRet = printPromise()[0];
+                retencion = printPromise()[1];
+                importeConRetencion = printPromise()[2];
+                motivoRet = printPromise()[3];
+            }*/
+        }else{
+            console.log('No se le aplica retencion ni detracción');
+            motivoRet = "SIN IGV";
+        }
+    
+    
+    let arrayData = [nropedido, fechaFactura, refer, fechaContab, valorVenta, IGV,importeTotal, detraccion, importe, texto, boolRet, importeConRetencion];
 
     let dataHTML = document.querySelector('.data-right');
-    let dataHTML2 = document.querySelector('.data-left');
     let dataTable = document.querySelector('#data');
-    let inputMotivoRet = document.querySelector('#motRetencion');
-    let inputMotivoRet2 = document.querySelector('#motRetencion2');
-    let inputImporteRetencion = document.querySelector('#importeRetencion');
-    let inputImporteRetencion2 = document.querySelector('#importeRetencion2');
-    let inputPorcentajeRetencion = document.querySelector('#PorcentajeRetencion');
-    let inputPorcentajeRetencion2 = document.querySelector('PporcentajeRetencion2');
-
     dataHTML.innerHTML = "";
     dataTable.innerHTML = "";
 
-    if (arrayData[10] == "NO") {
-        for (let i = 0; i < arrayData.length - 2; i++) {
-            dataHTML.innerHTML += `
-                <div class="value">
-                    ${arrayData[i]}
-                </div>
-            `
-            dataTable.innerHTML += `
-                <td>
-                    ${arrayData[i]}
-                </td>
-            `
-        }
 
-        inputImporteRetencion.remove();
-        inputImporteRetencion2.remove();
-        inputPorcentajeRetencion.remove();
-        inputPorcentajeRetencion2.remove();
-    } else {
-        for (let i = 0; i < arrayData.length; i++) {
-            if (i != 10) {
-                dataHTML.innerHTML += `
-                <div class="value">
-                    ${arrayData[i]}
-                </div>
-            `
-            dataTable.innerHTML += `
-                <td>
-                    ${arrayData[i]}
-                </td>
-            `
-            }
-        }
-
-        inputMotivoRet.remove();
-        inputMotivoRet2.remove();
+    for (let i = 0; i < arrayData.length; i++) {
+        dataHTML.innerHTML += `
+            <div class="value">
+                ${arrayData[i]}
+            </div>
+        `
+        dataTable.innerHTML += `
+            <td>
+                ${arrayData[i]}
+            </td>
+        `
     }
 }
 
