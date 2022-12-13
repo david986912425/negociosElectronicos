@@ -83,18 +83,20 @@ const CargarXML = (xml) => {
     var importeConRetencion = 0;
     var boolRet = "NO";
     var motivoRet = "asdsdasd";
-    var detraccion = "";
-    
-    
-    
-    var rucid = DocumentoXML.getElementsByTagName("cac:PartyIdentification")[0].children[0].innerHTML;
-    console.log(rucid);
-    
-    
+    var detraccion = "NO HAY DETRACCION";
+    var tipo = "";
 
-        //detraccion = parseFloat(importeTotal * 0.12).toFixed(2);
-        
-        if (importeTotal > 700 && IGV > 0) {
+
+    if (IGV > 0) {
+
+        var rucid = DocumentoXML.getElementsByTagName("cac:PartyIdentification")[0].children[0].innerHTML;
+        console.log(rucid);
+
+        tipo = "FACTURA";
+
+        var valorVenta = parseFloat(DocumentoXML.getElementsByTagName("cbc:TaxableAmount")[3].childNodes[0].nodeValue).toFixed(2); //Aca se calcula el importe
+
+        if (importeTotal > 700) {
             fetch('RUCELECTRONICOS.json')
             .then(data => data.json())
             .then(data=> {
@@ -114,11 +116,11 @@ const CargarXML = (xml) => {
                     console.log('Si se encuentra en el Padron de retencion,entonces no se debe cobrar retencion');
                     detraccion = parseFloat(importeTotal * 0.12).toFixed(2);
                     motivoRet = "SE ENCUENTRA EN EL PADRÓN DE RETENCIÓN";
-                    document.getElementsByClassName("value")[10].innerHTML = 'SE ENCUENTRA EN EL PADRÓN DE RETENCIÓN';
-                    document.getElementsByClassName("value")[11].innerHTML = 'SE EXONERA';
+                    document.getElementsByClassName("value")[11].innerHTML = 'SE ENCUENTRA EN EL PADRÓN DE RETENCIÓN';
+                    document.getElementsByClassName("value")[12].innerHTML = 'SE EXONERA';
                     if (resdectracion==0){
                         detraccion = "NO HAY DETRACCION";
-                        document.getElementsByClassName("value")[7].innerHTML = 'NO HAY DETRACCION';
+                        document.getElementsByClassName("value")[8].innerHTML = 'NO HAY DETRACCION';
 
                     }
                 }else{
@@ -126,39 +128,39 @@ const CargarXML = (xml) => {
                     boolRet = "SI";
                     retencion = parseFloat(importeTotal * 0.03).toFixed(2);
                     motivoRet = "NO SE ENCUENTRA EN EL PADRÓN DE RETENCIÓN";
-                    document.getElementsByClassName("value")[10].innerHTML = 'NO SE ENCUENTRA EN EL PADRÓN DE RETENCIÓN';
+                    document.getElementsByClassName("value")[11].innerHTML = 'NO SE ENCUENTRA EN EL PADRÓN DE RETENCIÓN';
                     retencion = importeTotal*0.03
-                    document.getElementsByClassName("value")[11].innerHTML = retencion.toFixed(2);
+                    document.getElementsByClassName("value")[12].innerHTML = retencion.toFixed(2);
                     var resultado2 = (parseFloat(resdectracion)-parseFloat(retencion)).toFixed(2)
                     console.log(resultado2)
                     if (resultado2 == 0){
-                        document.getElementsByClassName("value")[7].innerHTML = 'NO HAY DETRACCION';
+                        document.getElementsByClassName("value")[8].innerHTML = 'NO HAY DETRACCION';
 
                     }else{
-                        document.getElementsByClassName("value")[7].innerHTML = resultado2;
+                        document.getElementsByClassName("value")[8].innerHTML = resultado2;
                     }
                 }
             });
             
-            
-
-            /*if (printPromise().length == 2) {
-                detraccion = printPromise()[0];
-                motivoRet = printPromise()[1];
-            } else {
-                boolRet = printPromise()[0];
-                retencion = printPromise()[1];
-                importeConRetencion = printPromise()[2];
-                motivoRet = printPromise()[3];
-            }*/
-            
-        }else{
+        } else{
             console.log('No se le aplica retencion ni detracción');
             motivoRet = "SIN IGV";
         }
+        
+    } else {
+        valorVenta = importeTotal;
+        //valorVenta = parseFloat(DocumentoXML.getElementsByTagName("cbc:TaxableAmount")[0].childNodes[0].nodeValue).toFixed(2);
+        tipo = "RECIBO POR HONORARIO";
+        console.log('NO HAY DETRACCION');
+        document.getElementsByClassName("value")[8].innerHTML == "NO HAY";
+    }
+        
+    //if (fechavencimiento != undefined && fechavencimiento != null) {
+
+        
+    //}
     
-    
-    let arrayData = [nropedido, fechaFactura, refer, fechaContab, valorVenta, IGV,importeTotal, detraccion, importe, texto, boolRet, importeConRetencion];
+    let arrayData = [nropedido,tipo , fechaFactura, refer, fechaContab, valorVenta, IGV,importeTotal, detraccion, importe, texto, boolRet, importeConRetencion];
 
     let dataHTML = document.querySelector('.data-right');
     let dataTable = document.querySelector('#data');
