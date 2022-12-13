@@ -86,8 +86,11 @@ const CargarXML = (xml) => {
     var detraccion = "NO HAY DETRACCION";
     var tipo = "";
 
+    var invoiceType = DocumentoXML.getElementsByTagName("cbc:InvoiceTypeCode")[0].childNodes[0].nodeValue;
 
-    if (IGV > 0) {
+    console.log(invoiceType);
+
+    if (invoiceType == "01") {
 
         var rucid = DocumentoXML.getElementsByTagName("cac:PartyIdentification")[0].children[0].innerHTML;
         console.log(rucid);
@@ -142,7 +145,7 @@ const CargarXML = (xml) => {
                 }
             });
             
-        } else{
+        } else if (invoiceType == "03"){
             console.log('No se le aplica retencion ni detracción');
             motivoRet = "SIN IGV";
         }
